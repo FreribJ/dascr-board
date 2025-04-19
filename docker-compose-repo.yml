@@ -3,10 +3,10 @@ services:
   backend:
     image: ghcr.io/dascr/dascr-board/dascr-board-svc:main
     ports:
-      - "8000:8000"
+      - "7000:7000"
     environment:
       - API_IP=0.0.0.0
-      - API_PORT=8000
+      - API_PORT=7000
     networks:
       - dascr
   frontend:
@@ -14,11 +14,11 @@ services:
       - backend
     image: ghcr.io/dascr/dascr-board/dascr-board-ui:main
     ports:
-      - "8080:8080"
+      - "7070:7070"
     environment:
-      - VITE_API_BASE=http://localhost:8000/
-      - VITE_API_URL=http://localhost:8000/api
-      - VITE_WS_URL=ws://localhost:8000/ws
+      - VITE_API_BASE=http://localhost:7000/
+      - VITE_API_URL=http://localhost:7000/api
+      - VITE_WS_URL=ws://localhost:7000/ws
     networks:
       - dascr
 
